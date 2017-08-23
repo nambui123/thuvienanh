@@ -1,0 +1,9 @@
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: black;
+}
+.category{
+    padding-right: 10px;
+    color: white;
+}

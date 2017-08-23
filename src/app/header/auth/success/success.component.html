@@ -1,0 +1,25 @@
+<div class="hl-droplabel-user">
+  <span class="pointer">
+       <i class="fa fa-upload fa-lg" aria-hidden="true"></i>
+        <span i18n>Upload</span>
+  </span>
+  <span [mdMenuTriggerFor]="menu" class="pointer">
+        <span i18n>Hello</span>
+  <i class="fa fa-caret-down fa-lg"></i>
+  </span>
+</div>
+
+<md-menu #menu="mdMenu" id="menuSetting" overlapTrigger="true" x-position="before">
+  <div class="hl-dropdown-item-user" (click)="about()">
+    <i class="fa fa-refresh"></i> <span i18n>Trang cá nhân</span>
+  </div>
+  <div class="hl-dropdown-item-user" (click)="openHelp()">
+    <i class="fa fa-cog"></i> <span i18n>Trợ giúp</span>
+  </div>
+  <div class="hl-dropdown-item-user" (click)="openChangePassModal()">
+    <i class="fa fa-key"></i> <span i18n>Đổi mật khẩu</span>
+  </div>
+  <div class="hl-dropdown-item-user" (click)="logout()">
+    <i class="fa fa-power-off"></i> <span i18n>Đăng xuất</span>
+  </div>
+</md-menu>

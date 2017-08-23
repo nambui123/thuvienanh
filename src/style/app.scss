@@ -1,0 +1,14 @@
+
+@import 'toastr';
+@font-face {
+    font-family: 'Roboto';
+    src: url("./assets/font/Roboto/Roboto-Light.ttf");
+}
+html{
+    height: 100%;
+    body {
+        height: 100%;
+        font-family: sans-serif;
+        margin: 0px;
+    }
+}
