@@ -11,7 +11,7 @@ export class HttpServiceGenerator {
     }
 
     private get host() {
-        return "http://192.168.11.39:8080";
+        return "http://localhost:8080";
     }
 
     make<T>(uri = '') {
