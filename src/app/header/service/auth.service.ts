@@ -18,6 +18,7 @@ export interface IChangePass {
     re_new_pass: string;
 }
 export const IsLogin=new BehaviorSubject<boolean>(false);
+export const ModalChangePass=new BehaviorSubject<boolean>(false);
 export const AppStorage = new ApplicationStore();
 @Injectable()
 export class AuthApi {

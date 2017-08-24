@@ -2,5 +2,6 @@
     <logo class="inline logo"></logo>
     <search class="inline search"></search>
     <category class="inline category"></category>
-    <auth class="auth"></auth>
+    <auth *ngIf="!isLogin" class="auth"></auth>
+    <success *ngIf="isLogin" class="success"></success>
 </div>

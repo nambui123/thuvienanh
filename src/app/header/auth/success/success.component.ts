@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { MdMenuTrigger, MdDialog, MdDialogConfig } from '@angular/material';
 import { AuthApi } from "../../service/auth.service"
-import {ChangePassComponent} from "./changePassword.component"
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+import * as $ from 'jquery';
+declare var jQuery:any;
 @Component({
   selector: 'success',
   templateUrl: './success.component.html',
@@ -12,6 +14,17 @@ export class SuccessComponent {
     private mdDialog: MdDialog,
     private authApi: AuthApi
   ) { }
+  form: FormGroup;
+  username = '';
+  pass_false = false;
+  pattern_pass: any = "^[a-zA-Z0-9-_\?\!\@\#\$\*]{6,20}$";
+  change = new FormGroup({
+    old_pass: new FormControl(),
+    new_pass: new FormControl(),
+    re_new_pass: new FormControl(),
+    username: new FormControl(),
+  });
+
   about() {
 
   }
@@ -19,11 +32,21 @@ export class SuccessComponent {
 
   }
   openChangePassModal() {
-    const config = new MdDialogConfig();
-    config.width = '350px';
-    const dialog = this.mdDialog.open(ChangePassComponent, config);
+    jQuery("#myModal").modal("show");
   }
   logout() {
     this.authApi.Logout()
+  }
+  ChangePass() {
+    try {
+      if (this.change.value.new_pass === this.change.value.re_new_pass) {
+        this.authApi.ChangePassword(this.form.value);
+      }
+      else {
+        this.pass_false = true;
+      }
+    }
+    catch (Ex) {
+    }
   }
 }

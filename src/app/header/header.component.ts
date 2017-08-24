@@ -1,5 +1,5 @@
 import {Component} from "@angular/core"
-
+import { IsLogin } from "./service/auth.service";
 
 @Component({
   selector: 'header',
@@ -7,5 +7,12 @@ import {Component} from "@angular/core"
   styleUrls:['./header.component.css']
 })
 export class HeaderComponent {
-     
+    constructor(){
+    }
+    ngOnInit(){
+      IsLogin.subscribe(v=>{
+        this.isLogin=v;
+      })
+    }
+    isLogin=false;
 }

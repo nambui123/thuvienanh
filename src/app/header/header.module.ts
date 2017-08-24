@@ -12,7 +12,6 @@ import { FilterApi } from "./service/filter.service"
 import { AuthApi } from "./service/auth.service"
 import { AuthComponent } from "./auth/auth/auth.component"
 import { SuccessComponent } from "./auth/success/success.component"
-import { ChangePassComponent } from "./auth/success/changePassword.component"
 import { CategoryComponent } from "./filter/category/category.component"
 import { SearchComponent } from "./filter/search/search.component"
 import { LogoComponent } from "./filter/logo.component"
@@ -25,11 +24,11 @@ const routing = RouterModule.forChild([
 
 @NgModule({
     imports: [routing, CommonModule, BrowserModule, NoopAnimationsModule, BrowserAnimationsModule, HttpModule, ReactiveFormsModule, FormsModule, MdMenuModule, MdDialogModule],
-    declarations: [HeaderComponent, AuthComponent, SuccessComponent, CategoryComponent, SearchComponent, LogoComponent, ChangePassComponent],
+    declarations: [HeaderComponent, AuthComponent, SuccessComponent, CategoryComponent, SearchComponent, LogoComponent],
     exports: [HeaderComponent],
     providers: [FilterApi, AuthApi, HttpServiceGenerator],
      entryComponents: [
-         ChangePassComponent
+         
     ]
 })
 export class HeaderModule {

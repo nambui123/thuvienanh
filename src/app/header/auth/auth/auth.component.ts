@@ -1,30 +1,22 @@
 import { Component } from "@angular/core";
-import { IsLogin } from "../../service/auth.service";
 // import { MdMenuTrigger, MdDialog, MdDialogConfig } from '@angular/material';
 // import {LoginComponent} from "../login/login.component"
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthApi } from "../../service/auth.service";
 import { Toast } from "../../../shared/noti/toastr";
 import * as $ from 'jquery';
+declare var jQuery:any;
 @Component({
     selector: "auth",
     templateUrl: './auth.component.html',
     styleUrls: ['./auth.component.css']
 })
 export class AuthComponent {
-    // constructor(private mdDialog: MdDialog) {
-    //     this.isLogin = IsLogin.value;
-    // }
-    // isLogin: boolean;
-    // showModal() {
-    //     const config = new MdDialogConfig();
-    //     config.width = '350px';
-    //     const dialog = this.mdDialog.open(LoginComponent, config);
-    // }
     constructor(
-        private authApi: AuthApi) { }
+        private authApi: AuthApi) { 
+        }
     ngOnInit() { }
-    toast = new Toast;
+    // toast = new Toast;
     page = 'login';
     title = "Login";
     register_err = "";
@@ -50,13 +42,12 @@ export class AuthComponent {
     }
     login() {
         const login = this.login_form.value;
-        console.log("asda")
         if (login.username === null || login.password === null) {
             this.login_err = "Tên hoặc mật khẩu không rỗng!"
             return
         }
         this.authApi.Login(this.login_form.value).subscribe(v => {
-            console.log(v);
+            jQuery("#myModal").modal("hide");
         }, err => {
             this.login_err = err.message;
         });
